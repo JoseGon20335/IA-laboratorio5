@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
-from KNearest import loadDataset
+from KNearest import loadDataset, KNN
 
 # Importing dataset
 print("TASK 1.1 SIN LIBRERIAS")
@@ -28,7 +28,11 @@ print("Importing dataset")
 file = 'dataset_phishing.csv'
 trainingSet = []
 testSet = []
-trainingSet, testSet = loadDataset(file, 0.8, trainingSet, testSet)
-print('Train set: ' + len(trainingSet))
-print('Test set: ' + len(testSet))
+trainingSet, testSet = loadDataset(file, 0.8)
+sizeTraining = len(trainingSet)
+sizeTest = len(testSet)
+print("Training set: " + str(sizeTraining)
+      + " Test set: " + str(sizeTest))
 print("")
+predicion = KNN(trainingSet, testSet, 3)
+print("Prediccion: " + str(predicion))
